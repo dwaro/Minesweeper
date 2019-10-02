@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package djwaro.minesweeper;
 
 import org.junit.jupiter.api.AfterEach;
@@ -12,9 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author jacob
+/*
+ * @author David J. Waro
  */
 public class MatrixTest {
     
@@ -37,14 +31,16 @@ public class MatrixTest {
     public void tearDown() throws Exception {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
     //
     @Test
     public void testGenUnique() {
         Matrix matrix = new Matrix(5,4);
         int[] test = matrix.genUnique(21, 5);
-        int row = test[0];
-        assertEquals(4, row);
+        int[] correct = {4, 0};
+        assertArrayEquals(correct, test);
+        
+        test = matrix.genUnique(34, 17);
+        int[] correct2 = {1, 16};
+        assertArrayEquals(correct2, test);
     }
 }
